@@ -10,8 +10,7 @@ Download the zip or clone it into your working folder.  Require DataBinge/lib/da
 
 ## API
 
-
-### Public Class Methods
+##Public Class Methods
 
 ::columns
 Returns an array of table columns in symbol format of the specified DataBinge class.
@@ -81,6 +80,8 @@ Creates a new record object.  This takes in an options hash of key-value pairs c
 kyle = Driver.new(fname: "Kyle", lname: "Berg", garage_id: 3)
 => #<Driver:0x007fd7e31d6ba0 @attributes={:fname=>"Kyle", :lname=>"Berg", :garage_id=>3}>
 ```
+
+## Public Instance Methods
 
 \#attributes
 Returns the current values for the row object
