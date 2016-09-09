@@ -116,25 +116,25 @@ class DataBinge
     end
   end
 
-    private
-    def self.parse_all(results)
-      results.map { |row| self.new(row) }
-    end
+  private
+  def self.parse_all(results)
+    results.map { |row| self.new(row) }
+  end
 
-    def self.finalize!
-      columns = self.columns
-      columns.each do |col|
+  def self.finalize!
+    columns = self.columns
+    columns.each do |col|
 
-        define_method(col) do
-          @attributes[col]
-        end
-
-        define_method("#{col.to_s}=") do |target|
-          attributes
-          @attributes[col]=target
-        end
-
+      define_method(col) do
+        @attributes[col]
       end
+
+      define_method("#{col.to_s}=") do |target|
+        attributes
+        @attributes[col]=target
+      end
+
     end
+  end
 
 end
