@@ -42,7 +42,7 @@ module Associatable
     self.assoc_options[name] = BelongsToOptions.new(name, options)
     define_method(name) do
       foreign_key = self.class.assoc_options[name].foreign_key
-      model_class = self.class.assoc_options[name].class_name
+      model_class = self.class.assoc_options[name].class_name.constantize
       model_class.where(id: self.send(foreign_key))
     end
   end

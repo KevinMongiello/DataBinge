@@ -1,11 +1,12 @@
 # Data Binge
 ---
-Data Binge is an Object Relational Mapping (ORM), and it is based on Active Record.  It is used to make database manipulations easy and painless by using a class for each table which can effortlessly translate information from the database into well-formatted objects.  These classes, or models, enable an easy interface for users to get, set, and change data without ever having to directly access the database.  Model classes are also easily linked to each other through a process of setting a single foreign_key in the database and then appropriately describing the relation as a function name.  Data Binge does all the heavy lifting, as long as the user sticks closely to the suggested naming convention.
+Data Binge is an Object Relational Mapping (ORM) tool, and it is based on Active Record.  It is used to make database manipulations easy and painless by using a class for each table which can effortlessly translate information from the database into easily-manipulatable objects.  These classes, or models, enable an easy interface for users to get, set, and change data without ever having to directly access the database.  Model classes are also easily linked to each other through a process of setting a single foreign_key in the database and then appropriately describing the relation as a function name.  Data Binge does all the heavy lifting, as long as the user sticks closely to the suggested naming convention.
 
 In order to understand the relationship between tables, models, associations, etc.  A few rules must be followed.  By using the naming scheme provided, certain default values can be inferred and make configuration a breeze.  Say goodbye to boilerplate!
 
 ## Getting Started
 ---
+> If you'd like to play around first with the test file, open up `pry` and load the test file `load 'lib/test.rb'` and start making some queries like `Driver.first.cars` or `Car.first.driver`
 
 - Download the zip or clone the root directory into your working folder.  
 

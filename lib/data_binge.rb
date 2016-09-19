@@ -2,7 +2,6 @@ require 'active_support/inflector'
 require_relative 'searchable'
 require_relative 'associatable'
 require_relative '../db/db_connection'
-require 'byebug'
 
 class DataBinge
   extend Searchable
@@ -92,7 +91,6 @@ class DataBinge
 
   def update
     cols = self.class.columns.drop(1)
-    # debugger
     str = cols.map { |col| "#{col} = ?" }.join(", ")
     vals = attribute_values
     #(attribute_values.drop(1)) << self.id    # rotate id
