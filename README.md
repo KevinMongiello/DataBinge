@@ -1,21 +1,24 @@
 # Data Binge
----
+
 Data Binge is an Object Relational Mapping (ORM) tool, and it is based on Active Record.  It is used to make database manipulations easy and painless by using a class for each table which can effortlessly translate information from the database into easily-manipulatable objects.  These classes, or models, enable an easy interface for users to get, set, and change data without ever having to directly access the database.  Model classes are also easily linked to each other through a process of setting a single foreign_key in the database and then appropriately describing the relation as a function name.  Data Binge does all the heavy lifting, as long as the user sticks closely to the suggested naming convention.
 
 In order to understand the relationship between tables, models, associations, etc.  A few rules must be followed.  By using the naming scheme provided, certain default values can be inferred and make configuration a breeze.  Say goodbye to boilerplate!
 
 ## Getting Started
----
-> If you'd like to play around first with the test file, open up `pry` and load the test file `load 'lib/test.rb'` and start making some queries like `Driver.first.cars` or `Car.first.driver`
 
 - Download the zip or clone the root directory into your working folder.  
+
+**Using the provided DB**
+
+> If you'd like to play around first with the test file, open up `pry` and load the test file `load 'lib/test.rb'` and start making some queries like `Driver.first.cars` or `Car.first.driver`.
+
+**Using your own DB**
 
 - Change the paths in `db/db_connection.rb` to point to your database files.
 ```ruby
 SQL_FILE = File.join(ROOT_FOLDER, 'cars.sql') # Change 'cars.sql' to your sql file
 DB_File = File.join(ROOT_FOLDER, 'cars.db')   # Change 'cars.db' to your db file
 ```
-> Note: this step is only if you want to use your own database.  If you want to use the one provided, skip this step.
 
 - Require DataBinge/lib/data_binge into your model files, and define your classes to inherit from DataBinge.
 ```ruby
@@ -33,13 +36,13 @@ Car.finalize!
 
 > There is a test file included to show how to set up a model with associations.
 
-Reminder: the instance variables initialized by `finalize!` are the the column names declared in the database that has been setup in the sql file.  Feel free to call finalize! at the end of the class definition.
+Reminder: The instance variables initialized by `finalize!` are the column names declared in the database that have been setup in the sql file.  Make sure to call `finalize!` on your model to initialize the class accessors to get/set entry column values.
 
 ## API
----
+
 
 ##Public Class Methods
----
+
 `::columns`
 Returns an array of table columns in symbol format of the specified DataBinge class.
 ```ruby
@@ -102,7 +105,7 @@ Garage.first
 ```
 
 ## Public Instance Methods
----
+
 `#attributes`
 Returns the current values for the row object
 ```ruby
@@ -151,7 +154,6 @@ Kayla.save
 
 
 ## Associations
-
 - Tables link together through foreign keys
 ```ruby
 class Car < DataBinge
@@ -177,7 +179,7 @@ Driver.first.garage
 # => #<Garage:0x007f95d21f96a8 @attributes={:id=>1, :address=>"7th and Columbia"}>
 ```
 
-- has_one_through associations
+- has_many_through associations
 ```ruby
 class Garage < DataBinge
   has_many_through(
